@@ -33,7 +33,7 @@ app.post('/', function (req, res) {
         console.log("got the session object:");
         console.log(envelope);
         console.log(JSON.stringify(envelope) );
-        console.log('recordId: ' + envelope.context.environment.record.Id);
+        console.log('recordId: ' + envelope.context.environment.parameters.recordId);
         res.render('index', { title: envelope.context.user.userName, req : JSON.stringify(envelope), 
             recordId : envelope.context.environment.record.Id });
     }else{
