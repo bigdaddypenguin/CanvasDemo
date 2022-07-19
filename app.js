@@ -49,12 +49,12 @@ app.post('/', function (req, res) {
           }
           else{
             console.log(res.rows);
-            db_result = res.rows;
+            db_result = res;
           }
         
         });
         res.render('index', { title: envelope.context.user.userName, req : JSON.stringify(envelope), 
-            recordId : envelope.context.environment.parameters.recordId, inventory: JSON.stringify(res) });
+            recordId : envelope.context.environment.parameters.recordId, inventory: JSON.stringify(db_result) });
     }else{
         res.send("authentication failed");
     } 
