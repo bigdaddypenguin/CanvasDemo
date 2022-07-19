@@ -35,7 +35,7 @@ app.post('/', function (req, res) {
         console.log(JSON.stringify(envelope) );
         console.log('recordId: ' + envelope.context.environment.parameters.recordId);
         res.render('index', { title: envelope.context.user.userName, req : JSON.stringify(envelope), 
-            recordId : envelope.context.environment.record.Id });
+            recordId : envelope.context.environment.parameters.recordId });
     }else{
         res.send("authentication failed");
     } 
