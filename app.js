@@ -21,6 +21,8 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) { 
   var bodyArray = req.body.signed_request.split(".");
+  var requestBody = req.body;
+  alert(requestBody);
     var consumerSecret = bodyArray[0];
     var encoded_envelope = bodyArray[1];
 
