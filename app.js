@@ -48,8 +48,9 @@ app.post('/', function (req, res) {
             console.log(err);
           }
           else{
-            console.log(res.rows);
             db_result = res.rows;
+            console.log(db_result);
+
           }
         
         });
