@@ -55,7 +55,7 @@ app.post('/', function (req, res) {
         });
         console.log('db result ' + this.db_result);
         res.render('index', { title: envelope.context.user.userName, req : JSON.stringify(envelope), 
-            recordId : envelope.context.environment.parameters.recordId, inventory: this.db_result });
+            recordId : envelope.context.environment.parameters.recordId, inventory: JSON.parse(JSON.stringify(this.db_result) )});
     }else{
         res.send("authentication failed");
     } 
