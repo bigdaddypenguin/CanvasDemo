@@ -32,7 +32,7 @@ app.post('/', function (req, res) {
  
     var consumerSecret = bodyArray[0];
     var encoded_envelope = bodyArray[1];
-
+    var db_result;
     var check = crypto.createHmac("sha256", consumerSecretApp).update(encoded_envelope).digest("base64");
 
     if (check === consumerSecret) { 
@@ -49,11 +49,12 @@ app.post('/', function (req, res) {
           }
           else{
             console.log(res.rows);
+            db_result = res.rows;
           }
         
         });
         res.render('index', { title: envelope.context.user.userName, req : JSON.stringify(envelope), 
-            recordId : envelope.context.environment.parameters.recordId });
+            recordId : envelope.context.environment.parameters.recordId, inventory: db_result });
     }else{
         res.send("authentication failed");
     } 
