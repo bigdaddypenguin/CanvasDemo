@@ -22,14 +22,14 @@
             </p> 
         </div> 
         <div>
-            Inventory: <p><%= inventory%></p> 
-
-                <%for(var j=0;j<inventory.length;j++){%>
-                  <p>
-                    <%=inventory[j].name %>
-                  </p>  
-                <%}%>
-     
+            Inventory: 
+                <ul>
+                    <%for(var j=0;j<inventory.length;j++){%>
+                    <li>
+                        <%=inventory[j].name %>
+                    </li>
+                    <%}%>
+                </ul>
         </div>
 
 </body> 
