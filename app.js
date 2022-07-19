@@ -53,7 +53,7 @@ app.post('/', function (req, res) {
         
         });
         res.render('index', { title: envelope.context.user.userName, req : JSON.stringify(envelope), 
-            recordId : envelope.context.environment.parameters.recordId, inventory: res.rows });
+            recordId : envelope.context.environment.parameters.recordId, inventory: JSON.stringify(res.rows) });
     }else{
         res.send("authentication failed");
     } 
