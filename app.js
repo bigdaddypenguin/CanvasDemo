@@ -48,14 +48,12 @@ app.post('/', function (req, res) {
             console.log(err);
           }
           else{
-            db_result = res.rows;
-            console.log(db_result);
-
+            console.log(res.rows);
           }
         
         });
         res.render('index', { title: envelope.context.user.userName, req : JSON.stringify(envelope), 
-            recordId : envelope.context.environment.parameters.recordId, inventory: db_result });
+            recordId : envelope.context.environment.parameters.recordId, inventory: res.rows });
     }else{
         res.send("authentication failed");
     } 
